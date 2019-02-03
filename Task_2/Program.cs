@@ -30,6 +30,21 @@ namespace Task_2
             return (X % 2 != 0 && X > 0) ? true : false;
         }
 
+        static int EnterNumb()
+        {
+            int t = 0;
+            bool cor;
+
+            do
+            {
+                Console.WriteLine("Введите число:");
+                cor = Int32.TryParse(Console.ReadLine(), out t);
+
+            } while (!cor);
+
+            return t;
+        }
+
         static void Main()
         {
             int sum = 0;
@@ -37,7 +52,7 @@ namespace Task_2
             string oddPosNum = "";
             do
             {
-                Int32.TryParse(Console.ReadLine(), out n);
+                n = EnterNumb();
                 if (OddPositiveCheck(n))
                 {
                     sum += n;
