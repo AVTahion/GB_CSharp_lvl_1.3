@@ -30,6 +30,10 @@ namespace Task_2
             return (X % 2 != 0 && X > 0) ? true : false;
         }
 
+        /// <summary>
+        /// Метод проверяет корректность введеных даных(число) и приводит к int32
+        /// </summary>
+        /// <returns></returns>
         static int EnterNumb()
         {
             int t = 0;
