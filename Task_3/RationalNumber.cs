@@ -46,7 +46,8 @@ namespace Task_3
                 }
                 else
                 {
-                    Console.WriteLine("Знаменатель не может быть равен 0");
+                    ArgumentException argumentException = new ArgumentException("Знаменатель не может быть равен 0");
+                    Console.WriteLine(argumentException.Message);
                 }
             }
         }

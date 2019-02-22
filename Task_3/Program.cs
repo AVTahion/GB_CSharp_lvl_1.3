@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 /*  3)  *Описать класс дробей — рациональных чисел, являющихся отношением двух целых чисел.Предусмотреть методы сложения, вычитания, умножения и деления дробей.
         Написать программу, демонстрирующую все разработанные элементы класса.
@@ -24,8 +26,11 @@ namespace Task_3
             rationalNumber.Reduction();
             rationalNumber.Print();
             double i = rationalNumber.Decimal;
-            System.Console.WriteLine(i);
-            System.Console.ReadKey();
+            Console.WriteLine(i);
+            Console.ReadKey();
+
+            rationalNumber.De = Convert.ToUInt32(Console.ReadLine());
+            Console.ReadKey();
         }
     }
 }
