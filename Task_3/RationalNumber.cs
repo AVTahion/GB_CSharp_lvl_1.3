@@ -51,7 +51,7 @@ namespace Task_3
             }
         }
 
-        public double Decimal => _nu / _de;
+        public double Decimal => (double)_nu / _de;
 
         public RationalNumber (int nu, uint de)
         {
@@ -66,7 +66,7 @@ namespace Task_3
         /// <returns></returns>
         public RationalNumber Sum(RationalNumber x)
         {
-            RationalNumber y;
+            RationalNumber y = new RationalNumber(1, 1);
             y._nu = _nu * (int)x._de + x._nu * (int)_de;
             y._de = _de * x._de;
             return y;
@@ -79,7 +79,7 @@ namespace Task_3
         /// <returns></returns>
         public RationalNumber Mult(RationalNumber x)
         {
-            RationalNumber y;
+            RationalNumber y = new RationalNumber(1, 1);
             y._nu = _nu * x._nu;
             y._de = _de * x._de;
             return y;
@@ -92,7 +92,7 @@ namespace Task_3
         /// <returns></returns>
         public RationalNumber Subtraction(RationalNumber x)
         {
-            RationalNumber y;
+            RationalNumber y = new RationalNumber(1, 1);
             y._nu = _nu * (int)x._de - x._nu * (int)_de;
             y._de = _de * x._de;
             return y;
@@ -105,7 +105,7 @@ namespace Task_3
         /// <returns></returns>
         public RationalNumber Division(RationalNumber x)
         {
-            RationalNumber y;
+            RationalNumber y = new RationalNumber(1, 1);
             y._nu = _nu * (int)x._de;
             if (x._nu > 0)
             {
@@ -119,5 +119,36 @@ namespace Task_3
             return y;
         }
 
+        /// <summary>
+        /// Метод упрощения дробей
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        public void Reduction()
+        {
+            int y_nu = _nu;
+            uint y_de = _de;
+            uint NOD = 0;
+            while (_nu != 0 & _de != 0)
+            {
+                if (_nu > _de)
+                    _nu = _nu % (int)_de;
+                else
+                {
+                    _de = _de % (uint)_nu;
+                }
+            }
+            NOD = (uint)_nu + _de;
+            _nu = y_nu / (int)NOD;
+            _de = y_de / NOD;
+        }
+
+        /// <summary>
+        /// Метод выводит в консоль дробь в формате "числитель/знаменатель"
+        /// </summary>
+        public void Print()
+        {
+            Console.WriteLine($"{ _nu}/{_de}");
+        }
     }
 }

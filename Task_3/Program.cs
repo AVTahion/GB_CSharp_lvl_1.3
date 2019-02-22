@@ -19,7 +19,13 @@ namespace Task_3
     {
         static void Main(string[] args)
         {
-           
+            RationalNumber rationalNumber = new RationalNumber(20, 55);
+            rationalNumber.Print();
+            rationalNumber.Reduction();
+            rationalNumber.Print();
+            double i = rationalNumber.Decimal;
+            System.Console.WriteLine(i);
+            System.Console.ReadKey();
         }
     }
 }
